@@ -1,0 +1,8 @@
+{
+    "hotel_limit": 3000,
+    "meal_limit": 800,
+    "per_diem_daily_limit": 1000,
+    "travel_limit": 5000,
+    "receipt_required_above": 500,
+    "currency": "INR"
+}

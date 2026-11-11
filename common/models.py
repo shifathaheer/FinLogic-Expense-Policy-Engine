@@ -121,3 +121,40 @@ class ClaimWorkflow:
     status: ClaimStatus = ClaimStatus.VALIDATED
     return_count: int = 0
     consecutive_top_escalations: int = 0
+# Module A - Individual Expense Input
+@dataclass
+class ExpenseLine:
+    line_id: str
+    category: str
+    expense_date: str
+    amount: Decimal
+    currency: str
+
+    employee_id: Optional[str] = None
+    employee_name: Optional[str] = None
+
+    receipt: bool = False
+    trip_reference: Optional[str] = None
+    vendor: Optional[str] = None
+
+    travel_type: Optional[str] = None
+    travel_duration_hours: Optional[Decimal] = None
+    travel_class: Optional[str] = None
+    attendees: list = field(default_factory=list)
+
+    eligible_amount: Decimal = Decimal("0.00")
+    exception_amount: Decimal = Decimal("0.00")
+    rejected_amount: Decimal = Decimal("0.00")
+
+    validation_status: str = "PENDING"
+    rule_ids: list = field(default_factory=list)
+
+    exception_flag: bool = False
+    exception_approved: Optional[bool] = None
+
+    approved_amount: Decimal = Decimal("0.00")
+    policy_rate: Optional[Decimal] = None
+    card_rate: Optional[Decimal] = None
+    applied_rate: Optional[Decimal] = None
+
+    details: dict = field(default_factory=dict)
